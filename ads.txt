@@ -1,0 +1,3 @@
+# ads.txt placeholder for lhcars.my
+# After AdSense approval, replace this file with the line AdSense gives you, e.g.:
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
