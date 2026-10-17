@@ -2,7 +2,7 @@
    Empty ADSENSE_CLIENT = no ad scripts load, slots stay collapsed, reward buttons stay hidden. */
 (function () {
   var CONFIG = {
-    ADSENSE_CLIENT: '',      // e.g. 'ca-pub-1234567890123456'
+    ADSENSE_CLIENT: 'ca-pub-7704805622316346',      // e.g. 'ca-pub-1234567890123456'
     BANNER_SLOT: '',         // display ad unit slot id from AdSense (Ads > By ad unit)
     H5_REWARDED: true,       // Google H5 Games Ads (Ad Placement API) rewarded continues
     TEST_MODE: false         // true = data-adbreak-test="on" while H5 Games Ads is in review
@@ -14,6 +14,7 @@
     loaded = true;
     window.adsbygoogle = window.adsbygoogle || [];
     window.adBreak = window.adConfig = function (o) { window.adsbygoogle.push(o); };
+    if (document.querySelector('script[src*="adsbygoogle.js"]')) { if (CONFIG.H5_REWARDED) window.adConfig({ preloadAdBreaks: 'on', sound: 'on' }); return; }
     var s = document.createElement('script');
     s.async = true;
     s.crossOrigin = 'anonymous';
