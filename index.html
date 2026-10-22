@@ -35,6 +35,13 @@ h1{font-size:clamp(20px,5vw,44px);color:#ffd640;text-shadow:4px 4px 0 #78005a,0 
 .play:active{transform:translate(4px,4px);box-shadow:none}
 .card.sel .play:before{content:"\25B6  "}
 #mute{position:fixed;top:10px;right:10px;z-index:6;font:10px P2P,monospace;background:#120e34;color:#ffd640;border:3px solid #ffd640;padding:8px;cursor:pointer}
+.choose{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:6px 0 30px}
+@media (max-width:700px){.choose{grid-template-columns:1fr;gap:18px}}
+.choose a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:120px;padding:18px 14px;text-decoration:none;font:clamp(14px,2.6vw,20px)/1.4 P2P,monospace;color:#0a081e;background:var(--c);border:4px solid #fff;box-shadow:0 0 0 4px #0a081e,0 0 0 8px var(--c),8px 8px 0 8px rgba(0,0,0,.6);outline:none}
+.choose a small{font-size:9px;line-height:1.6;color:#120e34}
+.choose a:hover,.choose a:focus-visible{transform:translate(-2px,-2px);box-shadow:0 0 0 4px #0a081e,0 0 0 8px #fff,0 0 22px 8px var(--c)}
+.choose a:active{transform:translate(4px,4px)}
+.choose .ic{font-size:28px;line-height:1}
 footer{font-size:8px;color:#6c66a0;margin-top:28px}
 .hint{font-size:8px;color:#6c66a0;margin-top:18px}
 </style></head><body>
@@ -42,8 +49,12 @@ footer{font-size:8px;color:#6c66a0;margin-top:28px}
 <button id="mute" aria-label="Toggle sound">SFX:ON</button>
 <main>
 <h1>LH CARS<br>ARCADE</h1>
-<div class="sub">- SELECT YOUR GAME -</div>
-<div class="grid">
+<div class="sub">- CHOOSE YOUR ARCADE -</div>
+<nav class="choose" aria-label="Choose games">
+<a href="#racing" id="chRace" style="--c:#00e6ff">RACING GAMES<small>6 RETRO RACERS &middot; ALL AGES</small></a>
+<a href="/LittleRacers/" id="chKids" style="--c:#e8c872">LITTLE RACERS<br>(AGES 2-5)<small>TODDLER GAMES &middot; NO ADS</small></a>
+</nav>
+<div class="grid" id="racing" style="scroll-margin-top:16px">
 <div class="card" tabindex="0" style="--c:#00e6ff" data-href="/roadstermania/">
 <img src="/roadstermania/og.jpg" alt="Roadstermania">
 <h2>ROADSTERMANIA</h2>
@@ -80,12 +91,7 @@ footer{font-size:8px;color:#6c66a0;margin-top:28px}
 <p>Rally stages against the clock. Follow the pace notes, drift gravel and snow, fly the jumps, mind the cliffs.</p>
 <div class="ctl">HOLD L/R: STEER &middot; SPACE: HANDBRAKE</div>
 <a class="play" href="/PaceNotes/" tabindex="-1">PLAY</a></div>
-<div class="card" tabindex="0" style="--c:#e8c872" data-href="/LittleRacers/">
-<img src="/LittleRacers/og.jpg" alt="Little Racers" loading="lazy">
-<h2>LITTLE RACERS (AGES 2-5)</h2>
-<p>13 gentle car games for toddlers in English and Bahasa Melayu. Tap, drag and count. No ads, no reading needed.</p>
-<div class="ctl">TAP &middot; DRAG &middot; PARENT CORNER: HOLD 3 SECONDS</div>
-<a class="play" href="/LittleRacers/" tabindex="-1">PLAY</a></div>
+
 </div>
 <div class="lhad" data-lh-ad style="display:none;margin:22px auto 0;max-width:728px;min-height:0;color:#6c66a0"></div>
 <div class="hint">ARROWS + ENTER TO SELECT</div>
@@ -110,11 +116,12 @@ function pick(i,snd){sel=(i+cards.length)%cards.length;cards.forEach(function(c,
 function go(i){beep(660,.15);var h=cards[i].dataset.href;setTimeout(function(){location.href=h;},120);}
 cards.forEach(function(c,i){c.addEventListener('mouseenter',function(){if(sel!==i)pick(i,1);});c.addEventListener('focus',function(){if(sel!==i)pick(i,1);});
 c.addEventListener('click',function(e){e.preventDefault();pick(i);go(i);});});
-addEventListener('keydown',function(e){var k=e.key;if(k==='ArrowRight'||k==='ArrowDown'){pick(sel+1,1);cards[sel].focus();e.preventDefault();}else if(k==='ArrowLeft'||k==='ArrowUp'){pick(sel-1,1);cards[sel].focus();e.preventDefault();}else if(k==='Enter'||k===' '){if(document.activeElement===mb)return;go(sel);e.preventDefault();}});
+addEventListener('keydown',function(e){var k=e.key;if(k==='ArrowRight'||k==='ArrowDown'){pick(sel+1,1);cards[sel].focus();e.preventDefault();}else if(k==='ArrowLeft'||k==='ArrowUp'){pick(sel-1,1);cards[sel].focus();e.preventDefault();}else if(k==='Enter'||k===' '){if(document.activeElement===mb||(document.activeElement&&document.activeElement.closest&&document.activeElement.closest('.choose')))return;go(sel);e.preventDefault();}});
 mb.addEventListener('click',function(e){e.stopPropagation();muted=!muted;localStorage.setItem('arcadeMute',muted?'1':'0');ui();beep(520,.08);});
 var lt=0;document.addEventListener('touchend',function(e){var n=Date.now();if(n-lt<350)e.preventDefault();lt=n;},{passive:false});
 document.addEventListener('gesturestart',function(e){e.preventDefault();});
 pick(0);
 })();
 </script><script src="/ads.js" async></script>
+<script>document.getElementById('chRace').addEventListener('click',function(e){e.preventDefault();document.getElementById('racing').scrollIntoView({behavior:'smooth'});var c=document.querySelector('#racing .card');if(c)c.focus({preventScroll:true});});</script>
 </body></html>
