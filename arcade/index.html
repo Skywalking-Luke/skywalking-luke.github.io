@@ -1,0 +1,122 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="google-adsense-account" content="ca-pub-7704805622316346"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7704805622316346" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>LH Cars Arcade</title>
+<meta name="description" content="Six retro pixel racing games: Roadstermania, Mission S, Oval Rush, Turbo GP, Night Stint and Pace Notes. Free, no account.">
+<meta property="og:title" content="LH Cars Arcade">
+<meta property="og:description" content="Six retro pixel racing games: Roadstermania, Mission S, Oval Rush (stock cars), Turbo GP (grand prix), Night Stint (endurance) and Pace Notes (rally).">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lhcars.my/arcade/">
+<meta property="og:image" content="https://lhcars.my/og.jpg?v=1">
+<meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LH Cars Arcade">
+<meta name="twitter:description" content="Six retro pixel racing games: Roadstermania, Mission S, Oval Rush (stock cars), Turbo GP (grand prix), Night Stint (endurance) and Pace Notes (rally).">
+<meta name="twitter:image" content="https://lhcars.my/og.jpg?v=1">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://lhcars.my/arcade/">
+<style>
+@font-face{font-family:P2P;src:url(/fonts/PressStart2P-Regular.ttf) format("truetype");font-display:swap}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;background:#0a081e;color:#e8e6ff;font-family:P2P,monospace;touch-action:manipulation;-webkit-user-select:none;user-select:none}
+canvas#bg{position:fixed;inset:0;width:100%;height:100%;image-rendering:pixelated;z-index:0}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:5;background:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 2px,transparent 2px 4px);box-shadow:inset 0 0 120px rgba(0,0,0,.7)}
+main{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:28px 16px 20px;text-align:center}
+h1{font-size:clamp(20px,5vw,44px);color:#ffd640;text-shadow:4px 4px 0 #78005a,0 0 12px rgba(255,214,64,.6);margin:10px 0 6px;line-height:1.3}
+.sub{font-size:10px;color:#8fd8ff;margin-bottom:24px;animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media (max-width:700px){.grid{grid-template-columns:1fr}}
+.card{background:#120e34;padding:14px;border:4px solid var(--c);box-shadow:0 0 0 4px #0a081e,0 0 0 8px var(--c),8px 8px 0 8px rgba(0,0,0,.6);text-align:left;cursor:pointer;outline:none;transition:transform .08s steps(2)}
+.card.sel,.card:focus-visible{transform:translate(-2px,-2px);box-shadow:0 0 0 4px #0a081e,0 0 0 8px #fff,0 0 22px 8px var(--c)}
+.card img{width:100%;aspect-ratio:1200/630;display:block;image-rendering:pixelated;border:4px solid #000;background:#000}
+.card h2{color:var(--c);font-size:16px;margin:14px 0 10px}
+.card p{font-size:9px;line-height:1.8;margin:0 0 10px}
+.card .ctl{color:#a9a3d9;font-size:8px;line-height:1.8}
+.play{display:block;margin-top:14px;padding:14px;text-align:center;background:var(--c);color:#0a081e;text-decoration:none;font-size:18px;border:4px solid #fff;box-shadow:4px 4px 0 #000}
+.play:active{transform:translate(4px,4px);box-shadow:none}
+.card.sel .play:before{content:"\25B6  "}
+#mute{position:fixed;top:10px;right:10px;z-index:6;font:10px P2P,monospace;background:#120e34;color:#ffd640;border:3px solid #ffd640;padding:8px;cursor:pointer}
+.choose{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:6px 0 30px}
+@media (max-width:700px){.choose{grid-template-columns:1fr;gap:18px}}
+.choose a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:120px;padding:18px 14px;text-decoration:none;font:clamp(14px,2.6vw,20px)/1.4 P2P,monospace;color:#0a081e;background:var(--c);border:4px solid #fff;box-shadow:0 0 0 4px #0a081e,0 0 0 8px var(--c),8px 8px 0 8px rgba(0,0,0,.6);outline:none}
+.choose a small{font-size:9px;line-height:1.6;color:#120e34}
+.choose a:hover,.choose a:focus-visible{transform:translate(-2px,-2px);box-shadow:0 0 0 4px #0a081e,0 0 0 8px #fff,0 0 22px 8px var(--c)}
+.choose a:active{transform:translate(4px,4px)}
+.choose .ic{font-size:28px;line-height:1}
+footer{font-size:8px;color:#6c66a0;margin-top:28px}
+.hint{font-size:8px;color:#6c66a0;margin-top:18px}
+</style></head><body>
+<canvas id="bg"></canvas>
+<button id="mute" aria-label="Toggle sound">SFX:ON</button>
+<main><a href="/" style="position:fixed;top:10px;left:10px;z-index:6;font:10px P2P,monospace;background:#120e34;color:#8fd8ff;border:3px solid #8fd8ff;padding:8px;text-decoration:none">&lt; HOME</a>
+<h1>LH CARS<br>ARCADE</h1>
+<div class="sub">- PRESS START -</div>
+<div class="grid" id="racing" style="scroll-margin-top:16px">
+<div class="card" tabindex="0" style="--c:#00e6ff" data-href="/roadstermania/">
+<img src="/roadstermania/og.jpg" alt="Roadstermania">
+<h2>ROADSTERMANIA</h2>
+<p>Night Roadster runner. Tap to roll over traffic, hold to climb tunnel ceilings, boost when charged.</p>
+<div class="ctl">TAP/CLICK: HOP &middot; HOLD: CLIMB &middot; SHIFT/B: BOOST</div>
+<a class="play" href="/roadstermania/" tabindex="-1">PLAY</a></div>
+<div class="card" tabindex="0" style="--c:#ff466e" data-href="/MissionS/">
+<img src="/MissionS/og.jpg" alt="Mission S">
+<h2>MISSION S</h2>
+<p>Top-down race around the full Nordschleife. Dodge the hypercar field, grab power-ups, avoid hazards.</p>
+<div class="ctl">HOLD L/R OR ARROWS: STEER &middot; S/DOWN: BRAKE</div>
+<a class="play" href="/MissionS/" tabindex="-1">PLAY</a></div>
+<div class="card" tabindex="0" style="--c:#ffd23f" data-href="/OvalRush/">
+<img src="/OvalRush/og.jpg" alt="Oval Rush" loading="lazy">
+<h2>OVAL RUSH</h2>
+<p>Stock-car pack racing on a superspeedway. Draft, slingshot past, pit for fuel and tyres, survive the Big One.</p>
+<div class="ctl">HOLD L/R: STEER &middot; DIVE LEFT: PIT ROAD</div>
+<a class="play" href="/OvalRush/" tabindex="-1">PLAY</a></div>
+<div class="card" tabindex="0" style="--c:#00d26a" data-href="/TurboGP/">
+<img src="/TurboGP/og.jpg" alt="Turbo Gp" loading="lazy">
+<h2>TURBO GP</h2>
+<p>Open-wheel grand prix. Pick tyres, hunt DRS, deploy ERS, time your stop and gamble on the rain.</p>
+<div class="ctl">HOLD L/R: STEER &middot; W: DRS &middot; SPACE: ERS</div>
+<a class="play" href="/TurboGP/" tabindex="-1">PLAY</a></div>
+<div class="card" tabindex="0" style="--c:#8a7dff" data-href="/NightStint/">
+<img src="/NightStint/og.jpg" alt="Night Stint" loading="lazy">
+<h2>NIGHT STINT</h2>
+<p>GT endurance into the night. Headlights on, flash slower cars aside, yield to hypercars, nurse the damage.</p>
+<div class="ctl">HOLD L/R: STEER &middot; F: FLASH &middot; SPACE: PUSH</div>
+<a class="play" href="/NightStint/" tabindex="-1">PLAY</a></div>
+<div class="card" tabindex="0" style="--c:#ff8a1a" data-href="/PaceNotes/">
+<img src="/PaceNotes/og.jpg" alt="Pace Notes" loading="lazy">
+<h2>PACE NOTES</h2>
+<p>Rally stages against the clock. Follow the pace notes, drift gravel and snow, fly the jumps, mind the cliffs.</p>
+<div class="ctl">HOLD L/R: STEER &middot; SPACE: HANDBRAKE</div>
+<a class="play" href="/PaceNotes/" tabindex="-1">PLAY</a></div>
+
+</div>
+<div class="lhad" data-lh-ad style="display:none;margin:22px auto 0;max-width:728px;min-height:0;color:#6c66a0"></div>
+<div class="hint">ARROWS + ENTER TO SELECT</div>
+<footer>&copy; LH Cars &middot; <a href="/privacy.html" style="color:#8fd8ff">PRIVACY</a></footer>
+</main>
+<script>
+(function(){
+var cv=document.getElementById('bg'),x=cv.getContext('2d'),W,H,stars=[],t=0;
+function rs(){W=cv.width=Math.ceil(innerWidth/4);H=cv.height=Math.ceil(innerHeight/4);stars=[];for(var i=0;i<W*H/60;i++)stars.push([Math.random()*W,Math.random()*H*.6,Math.random()]);}
+addEventListener('resize',rs);rs();
+function fr(){t++;x.fillStyle='#0a081e';x.fillRect(0,0,W,H);
+for(var i=0;i<stars.length;i++){var s=stars[i];s[0]-=s[2]*.15;if(s[0]<0)s[0]=W;x.fillStyle=(t+i)%90<3?'#fff':s[2]>.7?'#cfe8ff':'#5a5a9a';x.fillRect(s[0]|0,s[1]|0,1,1);}
+var hz=(H*.68)|0;x.fillStyle='#1a1240';x.fillRect(0,hz-6,W,6);x.fillStyle='#16112e';x.fillRect(0,hz,W,H-hz);
+for(var r=0;r<12;r++){var z=((r*8+t*.6)%96)/96,y=hz+(H-hz)*z*z;x.fillStyle=r%2?'#2a1f5a':'#ffd640';var w=Math.max(1,(W*.05*z)|0);x.fillRect((W/2-w/2)|0,y|0,w,Math.max(1,(z*3)|0));}
+x.fillStyle='#ff466e';x.fillRect(0,hz,W,1);requestAnimationFrame(fr);}
+fr();
+var cards=[].slice.call(document.querySelectorAll('.card')),sel=0,ac=null,muted=localStorage.getItem('arcadeMute')==='1',armed=false,mb=document.getElementById('mute');
+function ui(){mb.textContent=muted?'SFX:OFF':'SFX:ON';}ui();
+function beep(f,d){if(muted||!armed)return;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();var o=ac.createOscillator(),g=ac.createGain();o.type='square';o.frequency.setValueAtTime(f,ac.currentTime);o.frequency.setValueAtTime(f*1.5,ac.currentTime+d/2);g.gain.setValueAtTime(.06,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+d);o.connect(g).connect(ac.destination);o.start();o.stop(ac.currentTime+d);}catch(e){}}
+function arm(){armed=true;}['pointerdown','keydown'].forEach(function(e){addEventListener(e,arm,{once:true,capture:true});});
+function pick(i,snd){sel=(i+cards.length)%cards.length;cards.forEach(function(c,j){c.classList.toggle('sel',j===sel);});if(snd)beep(440,.08);}
+function go(i){beep(660,.15);var h=cards[i].dataset.href;setTimeout(function(){location.href=h;},120);}
+cards.forEach(function(c,i){c.addEventListener('mouseenter',function(){if(sel!==i)pick(i,1);});c.addEventListener('focus',function(){if(sel!==i)pick(i,1);});
+c.addEventListener('click',function(e){e.preventDefault();pick(i);go(i);});});
+addEventListener('keydown',function(e){var k=e.key;if(k==='ArrowRight'||k==='ArrowDown'){pick(sel+1,1);cards[sel].focus();e.preventDefault();}else if(k==='ArrowLeft'||k==='ArrowUp'){pick(sel-1,1);cards[sel].focus();e.preventDefault();}else if(k==='Enter'||k===' '){if(document.activeElement===mb||(document.activeElement&&document.activeElement.closest&&document.activeElement.closest('a[href="/"]')))return;go(sel);e.preventDefault();}});
+mb.addEventListener('click',function(e){e.stopPropagation();muted=!muted;localStorage.setItem('arcadeMute',muted?'1':'0');ui();beep(520,.08);});
+var lt=0;document.addEventListener('touchend',function(e){var n=Date.now();if(n-lt<350)e.preventDefault();lt=n;},{passive:false});
+document.addEventListener('gesturestart',function(e){e.preventDefault();});
+pick(0);
+})();
+</script><script src="/ads.js" async></script>
+</body></html>
