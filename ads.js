@@ -62,3 +62,11 @@
   function auto() { var els = document.querySelectorAll('[data-lh-ad]'); for (var i = 0; i < els.length; i++) banner(els[i]); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', auto); else auto();
 })();
+
+/* Arcade visit counter (cookie-free, no IDs, arcade pages only). This file is never loaded by Little Racers. */
+(function () {
+  var s = document.createElement('script');
+  s.src = '/arcade-stats.js';
+  s.async = true;
+  (document.head || document.documentElement).appendChild(s);
+})();
