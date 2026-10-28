@@ -1,0 +1,24 @@
+/* Little Racers parent door. Calm look. Self-contained: no shared CSS, no fonts to download, no scripts, no ads, no counter. */
+:root{--bg:#fbf6ec;--ink:#3d3a33;--soft:#6b665a;--card:#fff;--line:#eadfc8;--accent:#e8a54a;--accent-ink:#2b1f0c;--green:#6aa37e;--radius:22px}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:18px/1.65 ui-rounded,"Nunito","Segoe UI",system-ui,-apple-system,sans-serif}
+.w{max-width:760px;margin:0 auto;padding:0 22px}
+header.top{padding:22px 0 0;color:var(--soft);font-size:15px;letter-spacing:.02em}
+.hero{padding:26px 0 8px;text-align:center}
+.hero img{width:100%;max-width:560px;height:auto;border-radius:var(--radius);display:block;margin:0 auto 22px;box-shadow:0 8px 24px rgba(90,70,30,.15)}
+h1{font-size:clamp(32px,6vw,44px);line-height:1.15;margin:0 0 8px;color:#a8541f}
+.hook{font-size:21px;color:var(--soft);margin:0 0 22px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:21px;padding:14px 32px;border-radius:999px;text-decoration:none}
+.btn:hover,.btn:focus-visible{filter:brightness(1.05)}
+h2{font-size:26px;margin:40px 0 10px;color:#a8541f}
+.card{background:var(--card);border-radius:var(--radius);padding:6px 24px;box-shadow:0 4px 14px rgba(90,70,30,.08)}
+ul.ticks{list-style:none;padding:0;margin:12px 0}
+ul.ticks li{padding:8px 0 8px 34px;position:relative}
+ul.ticks li:before{content:"";position:absolute;left:4px;top:15px;width:14px;height:8px;border-left:4px solid var(--green);border-bottom:4px solid var(--green);transform:rotate(-45deg)}
+dl dt{font-weight:700;margin-top:16px}dl dd{margin:2px 0 0;color:var(--soft)}
+a{color:#2f6f9c}
+.note{border:2px dashed var(--accent);border-radius:14px;padding:12px 16px;background:#fff9ec;margin:18px 0;font-size:16px}
+.note b.flag{background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:1px 10px;font-size:13px;margin-right:6px}
+footer{margin-top:48px;padding:26px 0 40px;text-align:center;color:var(--soft);font-size:15px;border-top:1px solid var(--line)}
+:focus-visible{outline:3px solid #2f6f9c;outline-offset:3px}

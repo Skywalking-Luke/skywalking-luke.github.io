@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid slice">
+<!-- PLACEHOLDER hero: replace with the approved Malaysian hill-road art (keep the file name or change the <img> in index.html). -->
+<defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6cc3f5"/><stop offset="1" stop-color="#fdeccb"/></linearGradient>
+<linearGradient id="h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4fa86a"/><stop offset="1" stop-color="#2e8a52"/></linearGradient></defs>
+<rect width="1600" height="700" fill="url(#s)"/>
+<g fill="#fff" opacity=".9"><ellipse cx="1180" cy="120" rx="110" ry="34"/><ellipse cx="1250" cy="104" rx="70" ry="30"/><ellipse cx="1480" cy="190" rx="90" ry="28"/><ellipse cx="620" cy="150" rx="80" ry="24"/></g>
+<path d="M0 420 L260 300 L480 400 L760 260 L1050 380 L1330 250 L1600 360 V700 H0Z" fill="#9fc9c0" opacity=".7"/>
+<path d="M500 700 C700 520 900 470 1200 380 C1350 330 1500 300 1600 290 V700Z" fill="url(#h)"/>
+<path d="M0 560 C300 470 640 470 900 520 C1100 560 1300 640 1600 640 V700 H0Z" fill="#2e8a52"/>
+<path d="M880 700 C960 600 1060 520 1250 440 C1380 385 1500 350 1600 335 L1600 372 C1500 392 1400 430 1300 480 C1170 545 1100 620 1090 700Z" fill="#5a6070"/>
+<path d="M950 700 C1020 610 1120 540 1290 470 C1400 425 1500 385 1600 365" fill="none" stroke="#f5c542" stroke-width="5" stroke-dasharray="26 18"/>
+<g fill="#1f6b3c"><path d="M80 700 l0-190 M80 520 q-70-30-90-80 M80 520 q60-40 110-30 M80 540 q-60 10-100 60"/></g>
+<g fill="none" stroke="#1f6b3c" stroke-width="10" stroke-linecap="round"><path d="M80 700 V500 M80 500 q-70-30-90-70 M80 500 q60-45 120-30 M80 515 q-60 5-100 60 M80 515 q55 15 90 70"/><path d="M1500 700 V470 M1500 470 q-70-30-100-80 M1500 470 q60-45 120-30 M1500 490 q-60 5-100 60"/></g>
+</svg>

@@ -1,0 +1,125 @@
+/* LH Cars shared stylesheet (daylight theme): homepage, game pages, updates, about, contact, community.
+   RESTYLE HERE: colours, fonts and sizes come from the variables in :root.
+   The arcade hub (/arcade/) and privacy.html keep their own retro pixel styles.
+   Little Racers' parent door uses /parents/parents.css and shares nothing with this file. */
+:root{
+  --paper:#fff7e8; --paper-2:#fdeccb; --card:#fff; --ink:#1b2a49; --ink-2:#4a5c80; --mute:#7c8db0; --line:#e6d9bd;
+  --blue:#2f9bf0; --blue-ink:#fff; --orange:#f2701b; --orange-dark:#d85a0a; --link:#1e6fc0;
+  --radius:18px; --maxw:1100px; --gap:16px; --shadow:0 6px 18px rgba(27,42,73,.14);
+  --font:"Baloo 2",ui-rounded,"Nunito","Segoe UI",system-ui,sans-serif;
+}
+@font-face{font-family:"Baloo 2";src:url(/fonts/Baloo2-latin.woff2) format("woff2");font-weight:400 800;font-display:swap}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:400 18px/1.55 var(--font);min-height:100vh;display:flex;flex-direction:column;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+a{color:var(--link)}
+img{max-width:100%;height:auto}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+main{flex:1}
+h1,h2,h3{line-height:1.15;margin:0}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800}
+
+/* header: wordmark is just "lhcars.my" */
+.site-head{background:var(--paper);position:relative;z-index:2}
+.site-head .wrap{display:flex;align-items:center;gap:20px;min-height:60px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.logo{font-weight:800;font-size:26px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.nav{display:flex;gap:6px;margin-left:auto;align-items:center;flex-wrap:wrap}
+.nav a{color:var(--ink);text-decoration:none;font-weight:600;padding:8px 12px;border-radius:999px}
+.nav a:hover,.nav a[aria-current]{background:var(--paper-2)}
+.nav a.cta{background:var(--blue);color:var(--blue-ink);padding:8px 20px;font-weight:700}
+.nav a.cta:hover{filter:brightness(1.08)}
+@media (max-width:560px){.nav a{padding:6px 8px;font-size:16px}.logo{font-size:22px}}
+
+.btn{display:inline-block;padding:12px 30px;border-radius:999px;background:var(--orange);color:#fff;font-weight:800;font-size:22px;text-decoration:none;box-shadow:0 4px 0 var(--orange-dark)}
+.btn:hover,.btn:focus-visible{filter:brightness(1.07)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--orange-dark)}
+
+/* homepage hero */
+.hero{position:relative;color:var(--ink);overflow:hidden;background:#9bd3f2}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.hero .in{position:relative;padding:44px 20px 56px;max-width:var(--maxw);margin:0 auto}
+.hero h1{font-size:clamp(38px,7vw,68px);font-weight:800;max-width:11em;color:#142347;text-shadow:0 2px 0 rgba(255,255,255,.35)}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p{font-size:clamp(18px,2.4vw,22px);font-weight:600;max-width:20em;margin:14px 0 22px;color:#142347}
+@media (max-width:640px){.hero .in{padding:32px 20px 220px}.hero img.bg{object-position:70% 100%}}
+
+/* six game cards */
+.games{padding-top:34px;padding-bottom:12px}
+.games-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.games-head a{font-weight:700;color:var(--ink);text-decoration:none}
+.games-head a:hover{text-decoration:underline}
+.games .sub{margin:6px 0 20px;color:var(--ink-2);max-width:40em}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);list-style:none;margin:0;padding:0}
+@media (max-width:640px){.cards{grid-template-columns:repeat(2,1fr);gap:12px}}
+.card{display:flex;flex-direction:column;height:100%;text-decoration:none;color:var(--ink);background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+.card:hover,.card:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px rgba(27,42,73,.22);outline:3px solid var(--c);outline-offset:0}
+.card .art{position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(160deg,var(--c),#142347)}
+.card .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.card .art .t{position:absolute;left:0;right:0;top:14%;text-align:center;color:#fff;font-weight:800;font-size:clamp(20px,3.2vw,32px);line-height:1;text-shadow:0 3px 0 rgba(0,0,0,.28);padding:0 8px}
+.card .art .ph{position:absolute;right:8px;bottom:6px;font-size:11px;font-weight:700;color:#fff;opacity:.75;letter-spacing:.04em}
+.card .txt{padding:12px 14px 16px}
+.card h3{font-size:20px;font-weight:800}
+.card p{margin:4px 0 0;font-size:15px;line-height:1.35;color:var(--ink-2)}
+@media (max-width:640px){.card h3{font-size:18px}.card p{font-size:14px}.card .txt{padding:10px 12px 14px}}
+
+/* Toddlers door: own rounded banner (Sylphy's art), well apart from the arcade cards. No ads, no arcade art in here. */
+.toddler-gap{height:clamp(44px,8vw,88px)}
+.toddlers{--t-ink:#5b4b6b;--t-bm:#c27f8b;--t-btn:#f3a9a0;--t-btn-sh:#e08f87;padding-bottom:44px}
+.tbanner{position:relative;border-radius:26px;overflow:hidden;background:#fdf6ea;box-shadow:0 8px 24px rgba(91,75,107,.12)}
+.tbanner img{display:block;width:100%;height:auto}
+.tpanel{position:absolute;left:3%;top:50%;transform:translateY(-50%);width:min(39%,430px);background:rgba(255,250,243,.84);border-radius:22px;padding:clamp(14px,2.2vw,28px);box-shadow:0 4px 14px rgba(91,75,107,.1)}
+.tpanel h2{font-weight:800;line-height:1.05;margin:0}
+.tpanel .t1{display:block;font-size:clamp(26px,3.7vw,50px);color:var(--t-ink)}
+.tpanel .t2{display:block;font-size:clamp(18px,2.4vw,30px);color:var(--t-bm);margin-top:4px}
+.tpanel p{margin:10px 0 14px;font-size:clamp(14px,1.4vw,17px);line-height:1.35;color:var(--t-ink)}
+.tbtn{display:inline-block;background:var(--t-btn);color:#fff;font-weight:800;font-size:clamp(16px,1.8vw,22px);padding:8px 26px;border-radius:999px;text-decoration:none;box-shadow:0 4px 0 var(--t-btn-sh)}
+.tbtn:hover,.tbtn:focus-visible{filter:brightness(1.04)}
+@media (max-width:699px){
+ .tbanner{border-radius:22px}
+ .tpanel{left:50%;top:2.5%;transform:translateX(-50%);width:92%;text-align:center;padding:12px 14px 14px}
+ .tpanel .t1{font-size:clamp(26px,8.2vw,36px)}.tpanel .t2{font-size:clamp(18px,5.4vw,24px)}
+ .tpanel p{font-size:13.5px;margin:4px 0 8px}
+ .tbtn{font-size:18px;padding:7px 24px}
+}
+
+/* inner pages */
+.page{padding-top:30px;padding-bottom:40px;max-width:860px}
+.page h1{font-size:clamp(34px,6vw,52px);font-weight:800;margin-bottom:6px}
+.page h2{margin:34px 0 10px}
+.page .hook{font-size:22px;font-weight:600;color:var(--ink-2);margin:0 0 22px}
+.crumbs{font-size:15px;color:var(--mute);margin:0 0 12px}
+.crumbs a{color:var(--ink-2)}
+.gp-hero{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center;margin-bottom:8px}
+@media (max-width:760px){.gp-hero{grid-template-columns:1fr;gap:18px}}
+.gp-hero img{width:100%;aspect-ratio:960/504;image-rendering:pixelated;border-radius:var(--radius);border:4px solid var(--c);box-shadow:var(--shadow);display:block;background:#000}
+.facts{color:var(--mute);font-size:15px;margin:12px 0 0}
+.how{background:var(--card);border-radius:14px;padding:6px 22px;border-left:8px solid var(--c);box-shadow:var(--shadow)}
+.how ul{padding-left:20px;margin:12px 0}.how li{margin:8px 0}
+.likes{padding-left:22px}
+.faq dt{font-weight:800;margin-top:12px}.faq dd{margin:2px 0 0;color:var(--ink-2)}
+.where{background:var(--paper-2);border-radius:14px;padding:14px 20px}
+.nextprev{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:28px;font-weight:700}
+.related{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;padding:0;list-style:none}
+.related a{display:block;text-decoration:none;color:var(--ink);background:var(--card);border-radius:12px;overflow:hidden;font-weight:700;font-size:16px;box-shadow:var(--shadow);border-bottom:5px solid var(--c2)}
+.related img{display:block;width:100%;aspect-ratio:960/504;object-fit:cover;image-rendering:pixelated}
+.related span{display:block;padding:8px 10px}
+.lhad{display:none}
+
+.log{list-style:none;padding:0;margin:20px 0 0}
+.log li{border-left:4px solid var(--line);padding:0 0 22px 20px;position:relative}
+.log li:before{content:"";position:absolute;left:-10px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--orange)}
+.log time{font-weight:700;color:var(--orange-dark);font-size:15px}
+.log h3{margin:2px 0 4px;font-size:22px}.log p{margin:0;color:var(--ink-2)}
+.placeholder{border:3px dashed var(--orange);border-radius:14px;padding:16px 20px;background:rgba(242,112,27,.06);margin:18px 0}
+.placeholder .flag{display:inline-block;font-size:13px;font-weight:800;background:var(--orange);color:#fff;padding:2px 10px;border-radius:999px;margin-bottom:8px}
+.placeholder h2{margin-top:0}
+.placeholder input,.placeholder button{font:inherit;padding:10px 14px;border-radius:10px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+.placeholder button{background:var(--paper-2);color:var(--mute);cursor:not-allowed}
+.placeholder form{display:flex;gap:10px;flex-wrap:wrap}
+
+footer{background:var(--paper-2);padding:26px 20px 30px;text-align:center;font-size:15px;color:var(--ink-2)}
+footer .mark{display:block;margin:0 auto 8px;font-weight:800;font-size:22px;letter-spacing:.04em;color:#b9a27a}
+footer a{color:var(--ink);font-weight:600}
+footer .sep{margin:0 8px;opacity:.5}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
