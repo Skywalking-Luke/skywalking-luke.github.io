@@ -74,12 +74,15 @@ h2{font-size:clamp(26px,4vw,34px);font-weight:800}
 .tpanel p{margin:10px 0 14px;font-size:clamp(14px,1.4vw,17px);line-height:1.35;color:var(--t-ink)}
 .tbtn{display:inline-block;background:var(--t-btn);color:#fff;font-weight:800;font-size:clamp(16px,1.8vw,22px);padding:8px 26px;border-radius:999px;text-decoration:none;box-shadow:0 4px 0 var(--t-btn-sh)}
 .tbtn:hover,.tbtn:focus-visible{filter:brightness(1.04)}
+.tparents{display:block;width:max-content;margin-top:10px;font-size:clamp(14px,1.4vw,16px);font-weight:600;color:var(--t-ink);text-decoration:underline;text-underline-offset:3px}
+.tparents:hover,.tparents:focus-visible{color:var(--t-bm)}
 @media (max-width:699px){
  .tbanner{border-radius:22px}
  .tpanel{left:50%;top:2.5%;transform:translateX(-50%);width:92%;text-align:center;padding:12px 14px 14px}
  .tpanel .t1{font-size:clamp(26px,8.2vw,36px)}.tpanel .t2{font-size:clamp(18px,5.4vw,24px)}
  .tpanel p{font-size:13.5px;margin:4px 0 8px}
  .tbtn{font-size:18px;padding:7px 24px}
+ .tparents{margin:8px auto 0}
 }
 
 /* inner pages */
